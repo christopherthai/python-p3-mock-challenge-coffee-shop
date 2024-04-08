@@ -68,19 +68,24 @@ class Customer:
     # Return the total amount spent by the customer
     @classmethod
     def most_aficionado(cls, coffee):
+        # Check if the input coffee is an instance of the Coffee class
         # if not isinstance(coffee, Coffee):
         #     raise Exception
+
+        # Find all orders that have the input coffee
         if coffee_all_orders := [
             order for order in Order.all if order.coffee is coffee
         ]:
+            # Find the customer with the highest total price of orders for the input coffee
             return max(
-                cls.all,
-                key=lambda customer: sum(
+                cls.all,  # Use the all class attribute to get all customers
+                key=lambda customer: sum(  # Use the sum function to get the total price of orders
                     order.price
                     for order in coffee_all_orders
                     if order.customer is customer
                 ),
             )
+        # Return None if there are no orders for the input coffee
         return None
 
 
