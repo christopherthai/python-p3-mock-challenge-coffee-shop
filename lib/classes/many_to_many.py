@@ -12,8 +12,8 @@ class Coffee:
     def name(self, name):
         if isinstance(name, str) and not hasattr(self, "name") and len(name) >= 3:
             self._name = name
-        # else:
-        #     raise Exception
+        else:
+            raise Exception
 
     # Return all orders for the coffee
     def orders(self):
@@ -50,8 +50,8 @@ class Customer:
     def name(self, name):
         if isinstance(name, str) and 1 <= len(name) <= 15:
             self._name = name
-        # else:
-        #     raise Exception
+        else:
+            raise Exception
 
     # Return all orders for the customer
     def orders(self):
@@ -69,8 +69,8 @@ class Customer:
     @classmethod
     def most_aficionado(cls, coffee):
         # Check if the input coffee is an instance of the Coffee class
-        # if not isinstance(coffee, Coffee):
-        #     raise Exception
+        if not isinstance(coffee, Coffee):
+            raise Exception
 
         # Find all orders that have the input coffee
         if coffee_all_orders := [
@@ -113,8 +113,8 @@ class Order:
             and 1.0 < price <= 10.0
         ):
             self._price = price
-        # else:
-        #     raise Exception
+        else:
+            raise Exception
 
     # Create property method and return the customer
     @property
@@ -126,8 +126,8 @@ class Order:
     def customer(self, customer):
         if isinstance(customer, Customer):
             self._customer = customer
-        # else:
-        #     raise Exception
+        else:
+            raise Exception
 
     # Create property method and return the coffee
     @property
@@ -139,5 +139,5 @@ class Order:
     def coffee(self, coffee):
         if isinstance(coffee, Coffee):
             self._coffee = coffee
-        # else:
-        #     raise Exception
+        else:
+            raise Exception
